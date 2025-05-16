@@ -153,10 +153,10 @@ const Jobs = () => {
                         {job.profile && job.profile.length > 0 && (
                           <div>
                             <h4 className="font-semibold text-gray-900 mb-3">Ihr Profil:</h4>
-                            <ul className="space-y-2">
+                            <ul className="space-y-2 list-none">
                               {job.profile.map((item, index) => (
                                 <li key={index} className="text-gray-600 flex items-start gap-2">
-                                  <span className="w-1.5 h-1.5 bg-blue-900 rounded-full mt-2" />
+                                  <span className="w-1.5 h-1.5 bg-blue-900 rounded-full mt-[0.6em] shrink-0" />
                                   <span>{item}</span>
                                 </li>
                               ))}
@@ -167,10 +167,10 @@ const Jobs = () => {
                         {job.tasks && job.tasks.length > 0 && (
                           <div>
                             <h4 className="font-semibold text-gray-900 mb-3">Ihre Aufgaben:</h4>
-                            <ul className="space-y-2">
+                            <ul className="space-y-2 list-none">
                               {job.tasks.map((task, index) => (
                                 <li key={index} className="text-gray-600 flex items-start gap-2">
-                                  <span className="w-1.5 h-1.5 bg-blue-900 rounded-full mt-2" />
+                                  <span className="w-1.5 h-1.5 bg-blue-900 rounded-full mt-[0.6em] shrink-0" />
                                   <span>{task}</span>
                                 </li>
                               ))}
@@ -181,10 +181,10 @@ const Jobs = () => {
                         {job.benefits && job.benefits.length > 0 && (
                           <div>
                             <h4 className="font-semibold text-gray-900 mb-3">Wir bieten:</h4>
-                            <ul className="space-y-2">
+                            <ul className="space-y-2 list-none">
                               {job.benefits.map((benefit, index) => (
                                 <li key={index} className="text-gray-600 flex items-start gap-2">
-                                  <span className="w-1.5 h-1.5 bg-blue-900 rounded-full mt-2" />
+                                  <span className="w-1.5 h-1.5 bg-blue-900 rounded-full mt-[0.6em] shrink-0" />
                                   <span className="whitespace-pre-line">{benefit}</span>
                                 </li>
                               ))}
