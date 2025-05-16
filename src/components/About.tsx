@@ -17,7 +17,7 @@ const About = () => {
             <h3 className="text-xl font-semibold text-gray-900 mb-4">Unsere Mission:</h3>
             <div className="space-y-6">
               <div className="flex items-start">
-                <Target className="w-8 h-8 md:w-12 md:h-12 text-blue-900 mt-1 mr-4" />
+                <Target className="w-16 h-16 text-blue-900 mt-1 mr-4" />
                 <div>
                   <p className="text-gray-600">Effiziente, kundenorientierte und standortunabhängige Instandhaltung von Güterwagen unter hohen Qualitätsstandards.</p>
                 </div>
