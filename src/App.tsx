@@ -18,7 +18,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
 
   return (
-    <Router>
+    <Router basename="/">
       <Routes>
         <Route path="/impressum" element={<Impressum />} />
         <Route path="/references" element={<References />} />
