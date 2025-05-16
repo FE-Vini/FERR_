@@ -98,10 +98,10 @@ const Jobs = () => {
 
               <div
                 className={`transition-all duration-200 overflow-hidden ${
-                  openJobId === job.id ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
+                  openJobId === job.id ? 'max-h-[70vh] opacity-100' : 'max-h-0 opacity-0'
                 }`}
               >
-                <div className="p-8 pt-4 space-y-6 border-t border-gray-100">
+                <div className="p-8 pt-4 space-y-6 border-t border-gray-100 overflow-y-auto max-h-[calc(70vh-4rem)]">
                   {job.id === 'initiative' ? (
                     <ProgressIndicator />
                   ) : (
