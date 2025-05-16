@@ -32,7 +32,10 @@ const Header = () => {
     <header className="fixed w-full bg-white/95 backdrop-blur-sm z-50 shadow-sm">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
-          <div className="h-12">
+          <div 
+            className="h-12 cursor-pointer" 
+            onClick={() => handleNavigation('/')}
+          >
             <img
               src="/images/fe-rr-logo.svg"
               alt="FE R&R Logo"
