@@ -12,7 +12,7 @@ const About = () => {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="bg-white/95 rounded-[20px] p-8 backdrop-blur-sm">
             <p className="text-gray-600 mb-6 md:text-lg">
-              Die FE Rail & Repair mit Firmensitz in Magdeburg wurde im Jahr 2025 gegründet und ist somit ganz frisch auf dem Markt als Dienstleister. Wir sind spezialisiert auf die Instandhaltungs- und Instandsetzungsarbeiten an Güterwagen – und das bundesweit. Trotz der jungen Unternehmensgeschichte verfügt das Unternehmen über eine große Expertise im Güterwagenbereich, durch umfassende Erfahrung und Fachwissen aus vielen Jahren in der Branche. Unser Ziel ist es, mit höchster Qualität, Flexibilität und Zuverlässigkeit den Ansprüchen unserer Kunden gerecht zu werden und so zur sicheren und effizienten Nutzung von Güterwagen im gesamten Schienennetz beizutragen.
+              Die FE Rail & Repair mit Firmensitz in Magdeburg wurde im Jahr 2025 gegründet und ist somit ganz frisch als Dienstleister auf dem Markt. Wir sind spezialisiert auf die Instandhaltungs- und Instandsetzungsarbeiten an Güterwagen – und das bundesweit. Trotz der jungen Unternehmensgeschichte verfügt das Unternehmen über eine große Expertise im Güterwagenbereich, durch umfassende Erfahrung und Fachwissen aus vielen Jahren in der Branche. Unser Ziel ist es, mit höchster Qualität, Flexibilität und Zuverlässigkeit den Ansprüchen unserer Kunden gerecht zu werden und so zur sicheren und effizienten Nutzung von Güterwagen im gesamten Schienennetz beizutragen.
             </p>
             <h3 className="text-xl font-semibold text-gray-900 mb-4">Unsere Mission:</h3>
             <div className="space-y-6">
