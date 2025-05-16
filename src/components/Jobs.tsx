@@ -21,7 +21,7 @@ const Jobs = () => {
     },
     {
       id: 'schlosser',
-      title: 'Schienenfahrzeugschlosser (m/w/d)',
+      title: 'Servicetechniker / Schlosser (m/w/d)',
       type: 'Vollzeit',
       location: 'Magdeburg',
       requirements: [
