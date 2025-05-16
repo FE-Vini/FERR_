@@ -64,7 +64,7 @@ Message: ${message}
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        from: 'FE Rail & Repair Website <no-reply@railandrepair.de>',
+        from: 'FE Rail & Repair Website <onboarding@resend.dev>',
         to: 'varis@feconsultinggmbh.onmicrosoft.com',
         subject: 'Neue Kontaktanfrage von der Website',
         text: emailContent,
