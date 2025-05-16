@@ -325,7 +325,7 @@ const ProgressIndicator = () => {
                     {errors.map((error, index) => (
                       <li key={index}>{error}</li>
                     ))}
-                  </ul>
+                    {step === TOTAL_STEPS ? 'Abschicken' : 'Continue'}
                 </div>
               )}
             </div>
