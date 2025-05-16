@@ -12,27 +12,65 @@ Deno.serve(async (req) => {
   }
 
   try {
-    const { name, email, message } = await req.json()
+    const data = await req.json()
+    
+    // Handle both regular contact form and initiative application
+    let emailContent = ''
+    let subject = ''
 
-    // Basic validation
-    if (!name || !email || !message) {
-      return new Response(
-        JSON.stringify({ error: 'Name, email and message are required' }),
-        { 
-          status: 400,
-          headers: {
-            'Content-Type': 'application/json',
-            ...corsHeaders
+    if (data.formType === 'initiative') {
+      const {
+        name,
+        email,
+        hasWorkedWithFreightCars,
+        yearsOfExperience,
+        previousWork,
+        experience,
+        workPreferences,
+        preferredShift
+      } = data
+
+      subject = 'Neue Initiativbewerbung'
+      emailContent = `
+Name: ${name}
+Email: ${email}
+
+Erfahrung mit Güterwagen: ${hasWorkedWithFreightCars}
+Berufserfahrung: ${yearsOfExperience}
+Bisherige Tätigkeit: ${previousWork || 'Nicht angegeben'}
+
+Erfahrungsbereiche:
+${experience.map(exp => `- ${exp}`).join('\n')}
+
+Wichtig bei der Arbeit:
+${workPreferences.map(pref => `- ${pref}`).join('\n')}
+
+Bevorzugte Arbeitszeit: ${preferredShift}
+`.trim()
+    } else {
+      // Regular contact form
+      const { name, email, message } = data
+      
+      if (!name || !email || !message) {
+        return new Response(
+          JSON.stringify({ error: 'Name, email and message are required' }),
+          { 
+            status: 400,
+            headers: {
+              'Content-Type': 'application/json',
+              ...corsHeaders
+            }
           }
-        }
-      )
-    }
+        )
+      }
 
-    const emailContent = `
+      subject = 'Neue Kontaktanfrage von der Website'
+      emailContent = `
 Name: ${name}
 Email: ${email}
 Message: ${message}
-    `.trim()
+`.trim()
+    }
 
     // Check and log API key status
     const apiKey = Deno.env.get('RESEND_API_KEY')
@@ -66,7 +104,7 @@ Message: ${message}
       body: JSON.stringify({
         from: 'FE Rail & Repair Website <onboarding@resend.dev>',
         to: 'v.aris@fe-consulting.eu',
-        subject: 'Neue Kontaktanfrage von der Website',
+        subject: subject,
         text: emailContent,
       })
     })
