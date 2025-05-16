@@ -9,7 +9,7 @@ const Datenschutz = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-[#060606]">
+    <div className="min-h-screen bg-[#060606] flex flex-col">
       <div className="fixed inset-0 z-0">
         <Squares
           direction="diagonal"
@@ -64,7 +64,7 @@ const Datenschutz = () => {
           </div>
         </div>
       </main>
-      <div className="relative z-10">
+      <div className="relative z-10 mt-auto">
         <Footer />
       </div>
     </div>
