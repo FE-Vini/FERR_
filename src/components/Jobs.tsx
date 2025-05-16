@@ -87,6 +87,22 @@ const Jobs = () => {
                   <BriefcaseIcon className="w-6 h-6 text-blue-900" />
                   <div className="text-left">
                     <h3 className="text-xl font-bold text-gray-900">{job.title}</h3>
+                    {(job.type || job.location) && (
+                      <div className="flex gap-4 mt-1">
+                        {job.type && (
+                          <div className="flex items-center gap-2 text-gray-600">
+                            <ClockIcon className="w-4 h-4 text-blue-900" />
+                            <span>{job.type}</span>
+                          </div>
+                        )}
+                        {job.location && (
+                          <div className="flex items-center gap-2 text-gray-600">
+                            <MapPinIcon className="w-4 h-4 text-blue-900" />
+                            <span>{job.location}</span>
+                          </div>
+                        )}
+                      </div>
+                    )}
                   </div>
                 </div>
                 <ChevronDown
