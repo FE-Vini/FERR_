@@ -99,9 +99,9 @@ const Jobs = () => {
               <div
                 className={`transition-all duration-200 overflow-hidden ${
                   openJobId === job.id ? 'max-h-[40vh] opacity-100' : 'max-h-0 opacity-0'
-                }`}
+                } flex flex-col`}
               >
-                <div className="p-8 pt-4 space-y-6 border-t border-gray-100 overflow-y-auto max-h-[calc(40vh-4rem)]">
+                <div className="p-8 pt-4 space-y-6 border-t border-gray-100 overflow-y-auto">
                   {job.id === 'initiative' ? (
                     <ProgressIndicator />
                   ) : (
@@ -155,9 +155,8 @@ const Jobs = () => {
                       <div className="text-gray-600 whitespace-pre-line mt-6">{job.footer}</div>
                     </>
                   )}
-                </div>
-                {job.id !== 'initiative' && (
-                  <div className="mt-4 mb-6 flex justify-center">
+                  {job.id !== 'initiative' && (
+                  <div className="mt-8 flex justify-center">
                     <StarBorder
                       as="a"
                       href={`mailto:Michael.knorr@railandrepair.de?subject=Bewerbung als ${job.title}`}
@@ -168,6 +167,7 @@ const Jobs = () => {
                     </StarBorder>
                   </div>
                 )}
+                </div>
               </div>
             </div>
           ))}
