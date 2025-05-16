@@ -74,7 +74,6 @@ const ProgressIndicator = () => {
     const handleSubmit = async () => {
       setIsLoading(true);
       setErrors([]);
-
       try {
         const response = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/send-email`, {
           method: 'POST',
@@ -93,7 +92,6 @@ const ProgressIndicator = () => {
         }
 
         setSuccess(true);
-        setStep(step + 1);
       } catch (err) {
         setErrors(['Es ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.']);
       } finally {
