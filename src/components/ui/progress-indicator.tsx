@@ -354,7 +354,7 @@ const ProgressIndicator = () => {
                             onClick={handleBack}
                             className="px-4 py-3 text-black flex items-center justify-center bg-gray-100 font-semibold rounded-full hover:bg-gray-50 hover:border transition-colors flex-1 w-16 text-sm"
                         >
-                            Back
+                            zurück
                         </motion.button>
                     )}
                     <motion.button
@@ -383,7 +383,7 @@ const ProgressIndicator = () => {
                                     <CircleCheck size={16} />
                                 </motion.div>
                             )}
-                            {step >= 7 ? 'Abschicken' : 'Continue'}
+                            {step >= 7 ? 'Abschicken' : 'weiter'}
                         </div>
                     </motion.button>
                 </motion.div>
