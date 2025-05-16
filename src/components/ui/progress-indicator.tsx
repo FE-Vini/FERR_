@@ -319,12 +319,13 @@ const ProgressIndicator = () => {
                 <div className="mt-4 p-3 bg-red-50 border border-red-200 rounded-lg">
                   <div className="flex items-center gap-2 text-red-600">
                     <AlertCircle className="w-5 h-5" />
-                    Fehler
+                    {step === TOTAL_STEPS ? 'Abschicken' : 'Continue'}
                   </div>
                   <ul className="mt-2 ml-7 list-disc text-red-600">
                     {errors.map((error, index) => (
                       <li key={index}>{error}</li>
                     ))}
+                  </ul>
                 </div>
               )}
             </div>
@@ -382,7 +383,7 @@ const ProgressIndicator = () => {
                                     <CircleCheck size={16} />
                                 </motion.div>
                             )}
-                            {step === TOTAL_STEPS ? 'Abschicken' : 'Continue'}
+                            Continue
                         </div>
                     </motion.button>
                 </motion.div>
