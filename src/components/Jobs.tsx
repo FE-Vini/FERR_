@@ -109,41 +109,47 @@ const Jobs = () => {
                       <div className="text-gray-600 whitespace-pre-line">{job.description}</div>
                       
                       <div className="space-y-6">
-                        <div>
-                          <h4 className="font-semibold text-gray-900 mb-3">Ihr Profil:</h4>
-                          <ul className="space-y-2">
-                            {job.profile.map((item, index) => (
-                              <li key={index} className="text-gray-600 flex items-start gap-2">
-                                <span className="w-1.5 h-1.5 bg-blue-900 rounded-full mt-2" />
-                                <span>{item}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
+                        {job.profile && job.profile.length > 0 && (
+                          <div>
+                            <h4 className="font-semibold text-gray-900 mb-3">Ihr Profil:</h4>
+                            <ul className="space-y-2">
+                              {job.profile.map((item, index) => (
+                                <li key={index} className="text-gray-600 flex items-start gap-2">
+                                  <span className="w-1.5 h-1.5 bg-blue-900 rounded-full mt-2" />
+                                  <span>{item}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
 
-                        <div>
-                          <h4 className="font-semibold text-gray-900 mb-3">Ihre Aufgaben:</h4>
-                          <ul className="space-y-2">
-                            {job.tasks.map((task, index) => (
-                              <li key={index} className="text-gray-600 flex items-start gap-2">
-                                <span className="w-1.5 h-1.5 bg-blue-900 rounded-full mt-2" />
-                                <span>{task}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
+                        {job.tasks && job.tasks.length > 0 && (
+                          <div>
+                            <h4 className="font-semibold text-gray-900 mb-3">Ihre Aufgaben:</h4>
+                            <ul className="space-y-2">
+                              {job.tasks.map((task, index) => (
+                                <li key={index} className="text-gray-600 flex items-start gap-2">
+                                  <span className="w-1.5 h-1.5 bg-blue-900 rounded-full mt-2" />
+                                  <span>{task}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
 
-                        <div>
-                          <h4 className="font-semibold text-gray-900 mb-3">Wir bieten:</h4>
-                          <ul className="space-y-2">
-                            {job.benefits.map((benefit, index) => (
-                              <li key={index} className="text-gray-600 flex items-start gap-2">
-                                <span className="w-1.5 h-1.5 bg-blue-900 rounded-full mt-2" />
-                                <span className="whitespace-pre-line">{benefit}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
+                        {job.benefits && job.benefits.length > 0 && (
+                          <div>
+                            <h4 className="font-semibold text-gray-900 mb-3">Wir bieten:</h4>
+                            <ul className="space-y-2">
+                              {job.benefits.map((benefit, index) => (
+                                <li key={index} className="text-gray-600 flex items-start gap-2">
+                                  <span className="w-1.5 h-1.5 bg-blue-900 rounded-full mt-2" />
+                                  <span className="whitespace-pre-line">{benefit}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
                       </div>
 
                       <div className="text-gray-600 whitespace-pre-line mt-6">{job.footer}</div>
@@ -154,9 +160,9 @@ const Jobs = () => {
                   <div className="mt-4 mb-6 flex justify-center">
                     <StarBorder
                       as="a"
-                      href="mailto:Michael.knorr@railandrepair.de?subject=Bewerbung als ${job.title}"
+                      href={`mailto:Michael.knorr@railandrepair.de?subject=Bewerbung als ${job.title}`}
                       color="#3b82f6"
-                     className="!py-1 !px-0"
+                      className="!py-1 !px-0"
                     >
                       Jetzt bewerben
                     </StarBorder>
