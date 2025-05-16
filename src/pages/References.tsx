@@ -36,18 +36,6 @@ const References = () => {
                   <div className="flex-1">
                     <h3 className="text-xl font-semibold mb-2">ISO 9001:2025 Zertifikat</h3>
                     <p className="text-gray-400 mb-4">Qualitätsmanagement-Zertifizierung</p>
-                    <div className="flex items-center gap-2">
-                      <StarBorder
-                        as="button"
-                        className="!py-1 !px-0"
-                        color="#3b82f6"
-                      >
-                        <div className="flex items-center gap-2">
-                          <Download className="w-4 h-4" />
-                          Download
-                        </div>
-                      </StarBorder>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -62,18 +50,6 @@ const References = () => {
                     <div>
                       <h3 className="text-xl font-semibold mb-2">VPI-EMG Bezieher</h3>
                       <p className="text-gray-400 mb-4">Zertifizierung als VPI-EMG Bezieher</p>
-                      <div className="flex items-center gap-2">
-                        <StarBorder
-                          as="button"
-                          className="!py-1 !px-0"
-                          color="#3b82f6"
-                        >
-                          <div className="flex items-center gap-2">
-                            <Download className="w-4 h-4" />
-                            Download
-                          </div>
-                        </StarBorder>
-                      </div>
                     </div>
                     <img
                       src="/images/VPI-EMG.svg"
