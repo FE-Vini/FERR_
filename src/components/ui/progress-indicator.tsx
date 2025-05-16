@@ -393,5 +393,3 @@ const ProgressIndicator = () => {
 }
 
 export default ProgressIndicator
-
-export default ProgressIndicator
