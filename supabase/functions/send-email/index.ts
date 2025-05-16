@@ -34,12 +34,17 @@ Email: ${email}
 Message: ${message}
     `.trim()
 
-    // Check if RESEND_API_KEY is set
+    // Check and log API key status
     const apiKey = Deno.env.get('RESEND_API_KEY')
+    console.log('API Key status:', apiKey ? 'Present' : 'Missing')
+    
     if (!apiKey) {
       console.error('RESEND_API_KEY is not set')
       return new Response(
-        JSON.stringify({ error: 'Email service configuration error' }),
+        JSON.stringify({ 
+          error: 'Email service configuration error',
+          details: 'API key is missing'
+        }),
         { 
           status: 500,
           headers: {
@@ -50,6 +55,8 @@ Message: ${message}
       )
     }
 
+    console.log('Attempting to send email...')
+    
     const response = await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: {
@@ -64,20 +71,20 @@ Message: ${message}
       })
     })
 
-    // Get the response body for error details
+    // Get and log the response body
     const responseBody = await response.text()
+    console.log('Resend API Response:', {
+      status: response.status,
+      statusText: response.statusText,
+      body: responseBody
+    })
     
     if (!response.ok) {
-      console.error('Resend API Error:', {
-        status: response.status,
-        statusText: response.statusText,
-        body: responseBody
-      })
-      
       return new Response(
         JSON.stringify({ 
           error: 'Failed to send email',
-          details: `API Status: ${response.status} - ${response.statusText}`
+          details: `API Status: ${response.status} - ${response.statusText}`,
+          response: responseBody
         }),
         { 
           status: response.status,
@@ -103,7 +110,8 @@ Message: ${message}
     return new Response(
       JSON.stringify({ 
         error: 'Failed to send email',
-        details: error.message
+        details: error.message,
+        stack: error.stack
       }),
       { 
         status: 500,
