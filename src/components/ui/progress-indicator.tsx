@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
-import { CheckCircle as CircleCheck, AlertCircle } from 'lucide-react'
+import { CheckCircle as CircleCheck, AlertCircle, Loader2 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 const TOTAL_STEPS = 8
@@ -19,6 +19,8 @@ interface FormData {
 const ProgressIndicator = () => {
     const [step, setStep] = useState(1)
     const [isExpanded, setIsExpanded] = useState(true)
+    const [isLoading, setIsLoading] = useState(false)
+    const [success, setSuccess] = useState(false)
     const [formData, setFormData] = useState<FormData>({
       name: '',
       email: '',
@@ -58,11 +60,46 @@ const ProgressIndicator = () => {
     const handleContinue = () => {
         if (!validateStep()) return
 
+        if (step === 7) {
+          handleSubmit();
+          return;
+        }
+
         if (step < TOTAL_STEPS) {
             setStep(step + 1)
             setIsExpanded(false)
         }
     }
+
+    const handleSubmit = async () => {
+      setIsLoading(true);
+      setErrors([]);
+
+      try {
+        const response = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/send-email`, {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            ...formData,
+            formType: 'initiative'
+          }),
+        });
+
+        if (!response.ok) {
+          throw new Error('Failed to send message');
+        }
+
+        setSuccess(true);
+        setStep(step + 1);
+      } catch (err) {
+        setErrors(['Es ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.']);
+      } finally {
+        setIsLoading(false);
+      }
+    };
 
     const handleBack = () => {
         setErrors([])
@@ -315,6 +352,12 @@ const ProgressIndicator = () => {
             <div className="w-full max-w-2xl overflow-visible">
               {renderStepContent()}
               
+              {success && (
+                <div className="mt-4 p-3 bg-green-100 text-green-700 rounded-lg">
+                  Ihre Bewerbung wurde erfolgreich gesendet. Wir werden uns in Kürze bei Ihnen melden.
+                </div>
+              )}
+              
               {errors.length > 0 && (
                 <div className="mt-4 p-3 bg-red-50 border border-red-200 rounded-lg">
                   <div className="flex items-center gap-2 text-red-600">
@@ -368,7 +411,12 @@ const ProgressIndicator = () => {
                         )}
                     >
                         <div className="flex items-center font-[600] justify-center gap-2 text-sm">
-                            {step === TOTAL_STEPS && (
+                            {isLoading ? (
+                                <div className="flex items-center justify-center gap-2">
+                                    <Loader2 className="w-4 h-4 animate-spin" />
+                                    Wird gesendet...
+                                </div>
+                            ) : step === TOTAL_STEPS && (
                                 <motion.div
                                     initial={{ scale: 0, opacity: 0 }}
                                     animate={{ scale: 1, opacity: 1 }}
@@ -383,7 +431,7 @@ const ProgressIndicator = () => {
                                     <CircleCheck size={16} />
                                 </motion.div>
                             )}
-                            {step >= 7 ? 'Abschicken' : 'weiter'}
+                            {!isLoading && (step >= 7 ? 'Abschicken' : 'weiter')}
                         </div>
                     </motion.button>
                 </motion.div>
