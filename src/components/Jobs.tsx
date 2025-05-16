@@ -9,7 +9,7 @@ const Jobs = () => {
   const jobs = [
     {
       id: 'wagenmeister',
-      title: 'Wagenmeister (m/w/d)',
+      title: 'Wagenmeister / Wagenprüfer (m/w/d)',
       type: 'Vollzeit',
       location: 'Magdeburg',
       requirements: [
