@@ -9,7 +9,7 @@ const Datenschutz = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-[#060606] flex flex-col">
+    <div className="min-h-screen bg-black flex flex-col">
       <Header />
       <main className="relative z-10 text-white py-20">
         <div className="container mx-auto px-4 max-w-3xl">
