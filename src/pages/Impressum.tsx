@@ -10,14 +10,6 @@ const Impressum = () => {
 
   return (
     <div className="min-h-screen bg-[#060606] flex flex-col">
-      <div className="fixed inset-0 z-0">
-        <Squares
-          direction="diagonal"
-          speed={0.15}
-          squareSize={35}
-          borderColor="#e5e7eb"
-        />
-      </div>
       <Header />
       <main className="relative z-10 text-white py-20">
         <div className="container mx-auto px-4 max-w-3xl">

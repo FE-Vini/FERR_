@@ -25,14 +25,6 @@ function App() {
         <Route path="/datenschutz" element={<Datenschutz />} />
         <Route path="/" element={
           <div className={`min-h-screen ${isLoading ? 'opacity-0' : 'opacity-100 transition-opacity duration-500'}`}>
-            <div className="fixed inset-0 z-0">
-              <Squares
-                direction="diagonal"
-                speed={0.15}
-                squareSize={35}
-                borderColor="#e5e7eb"
-              />
-            </div>
             <Header />
             <main className="relative z-10">
               <Hero onLoad={() => setIsLoading(false)} />
