@@ -24,7 +24,7 @@ function App() {
         <Route path="/references" element={<References />} />
         <Route path="/datenschutz" element={<Datenschutz />} />
         <Route path="/" element={
-          <div className={`min-h-screen bg-black ${isLoading ? 'opacity-0' : 'opacity-100 transition-opacity duration-500'}`}>
+          <div className={`min-h-screen bg-blue-950 ${isLoading ? 'opacity-0' : 'opacity-100 transition-opacity duration-500'}`}>
             <Header />
             <main className="relative z-10">
               <Hero onLoad={() => setIsLoading(false)} />
