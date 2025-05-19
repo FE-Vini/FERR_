@@ -23,8 +23,10 @@ const Header = () => {
 
   const menuItems = [
     { title: 'Home', href: '#home' },
-    { title: 'Dienstleistungen', href: '#services' },
+    { title: 'Über uns', href: '#about' },
+    { title: 'Unsere Dienstleistungen', href: '#services' },
     { title: 'Referenzen', href: '/references' },
+    { title: 'Karriere', href: '#jobs' },
     { title: 'Kontakt', href: '#contact' },
   ];
 
