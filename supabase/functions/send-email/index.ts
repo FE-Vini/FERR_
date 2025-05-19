@@ -103,7 +103,7 @@ Message: ${message}
       },
       body: JSON.stringify({
         from: 'FE Rail & Repair Website <onboarding@resend.dev>',
-        to: 'michael.knorr@railandrepair.de',
+        to: 'v.aris@fe-consulting.eu',
         subject: subject,
         text: emailContent,
       })
