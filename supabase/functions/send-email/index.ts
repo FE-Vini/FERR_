@@ -102,7 +102,7 @@ Message: ${message}
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        from: 'FE Rail & Repair Website <onboarding@resend.dev>',
+        from: 'FE Rail & Repair Website <info@railandrepair.de>',
         to: 'michael.knorr@railandrepair.de',
         subject: subject,
         text: emailContent,
@@ -118,6 +118,7 @@ Message: ${message}
     })
     
     if (!response.ok) {
+      console.error('Failed to send email:', responseBody)
       return new Response(
         JSON.stringify({ 
           error: 'Failed to send email',
