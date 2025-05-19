@@ -46,7 +46,7 @@ const Header = () => {
           </div>
           
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-12">
+          <nav className="hidden md:flex space-x-8">
             {menuItems.map((item) => (
               <a
                 key={item.title}
