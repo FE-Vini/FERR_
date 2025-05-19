@@ -23,17 +23,15 @@ const Header = () => {
 
   const menuItems = [
     { title: 'Home', href: '#home' },
-    { title: 'Über uns', href: '#about' },
     { title: 'Dienstleistungen', href: '#services' },
     { title: 'Referenzen', href: '/references' },
-    { title: 'Karriere', href: '#jobs' },
     { title: 'Kontakt', href: '#contact' },
   ];
 
   return (
     <header className="fixed w-full bg-white/95 backdrop-blur-sm z-50 shadow-sm">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-20">
           <div 
             className="h-12 cursor-pointer" 
             onClick={() => handleNavigation('/')}
@@ -46,12 +44,12 @@ const Header = () => {
           </div>
           
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-6">
+          <nav className="hidden md:flex space-x-8">
             {menuItems.map((item) => (
               <a
                 key={item.title}
                 onClick={() => handleNavigation(item.href)}
-                className="text-sm text-gray-600 hover:text-blue-900 transition-colors duration-200"
+                className="text-gray-600 hover:text-blue-900 transition-colors duration-200"
                 style={{ cursor: 'pointer' }}
               >
                 {item.title}
@@ -74,12 +72,12 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <nav className="md:hidden py-3 border-t">
+          <nav className="md:hidden py-4 border-t">
             {menuItems.map((item) => (
               <a
                 key={item.title}
                 onClick={() => handleNavigation(item.href)}
-                className="block py-2 text-sm text-gray-600 hover:text-blue-900"
+                className="block py-2 text-gray-600 hover:text-blue-900"
                 style={{ cursor: 'pointer' }}
               >
                 {item.title}
@@ -93,3 +91,5 @@ const Header = () => {
 };
 
 export default Header;
+
+export default Header
