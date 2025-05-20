@@ -6,7 +6,7 @@ const corsHeaders = {
   'Access-Control-Allow-Headers': 'Content-Type, Authorization',
 }
 
-const WEBHOOK_URL = 'https://n8n-hd2r.onrender.com/webhook/5b98cc6c-1178-489f-b0b9-158f890a9d36'
+const WEBHOOK_URL = 'https://n8n-hd2r.onrender.com/webhook-test/5b98cc6c-1178-489f-b0b9-158f890a9d36'
 
 Deno.serve(async (req) => {
   if (req.method === 'OPTIONS') {
