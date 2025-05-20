@@ -41,33 +41,34 @@ Deno.serve(async (req) => {
       body: JSON.stringify(data)
     })
 
-    // Get the response content type
+    // Get the response content type and body
     const responseContentType = response.headers.get('content-type')
-    
-    // Log the complete response details
     const responseBody = await response.text()
+    
+    // Log the complete response details for debugging
     console.log('Webhook Response:', {
       status: response.status,
       statusText: response.statusText,
       contentType: responseContentType,
-      body: responseBody
+      body: responseBody.substring(0, 500) // Limit log size
     })
 
-    // Check if we received HTML instead of JSON
-    if (responseContentType?.includes('text/html')) {
-      throw new Error('Received HTML response instead of JSON. The webhook endpoint might be returning an error page.')
+    // First check if the response was successful
+    if (!response.ok) {
+      throw new Error(`Webhook returned error status: ${response.status} - ${response.statusText}`)
     }
 
-    // Try to parse the response as JSON
+    // Handle non-JSON responses
+    if (!responseContentType?.includes('application/json')) {
+      throw new Error(`Unexpected response type from webhook: ${responseContentType}. Expected JSON response.`)
+    }
+
+    // Only try to parse JSON if we got a JSON response
     let jsonResponse
     try {
       jsonResponse = JSON.parse(responseBody)
     } catch (e) {
-      throw new Error(`Invalid JSON response from webhook: ${responseBody.substring(0, 100)}...`)
-    }
-    
-    if (!response.ok) {
-      throw new Error(`Webhook returned error status: ${response.status} - ${response.statusText}`)
+      throw new Error(`Failed to parse webhook response as JSON. Response starts with: ${responseBody.substring(0, 100)}...`)
     }
 
     return new Response(
@@ -89,11 +90,13 @@ Deno.serve(async (req) => {
       cause: error.cause
     })
 
+    // Return a more detailed error response
     return new Response(
       JSON.stringify({ 
         error: 'Failed to process request',
         message: error.message,
-        type: error.constructor.name
+        type: error.constructor.name,
+        details: 'The webhook may be returning an error page or invalid response. Please check the webhook configuration.'
       }),
       { 
         status: 500,
