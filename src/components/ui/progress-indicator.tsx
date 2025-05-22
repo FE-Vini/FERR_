@@ -51,7 +51,7 @@ const ProgressIndicator = () => {
         newErrors.push('Bitte wählen Sie mindestens eine Option')
       } else if (step === 6 && formData.experience.length === 0) {
         newErrors.push('Bitte wählen Sie mindestens eine Option')
-      } else if (step === 7 && !formData.preferredShift) {
+      } else if (step === 8 && !formData.preferredShift) {
         newErrors.push('Bitte wählen Sie eine Option')
       } else if (step === 9 && !formData.resume) {
         newErrors.push('Bitte laden Sie Ihren Lebenslauf hoch')
