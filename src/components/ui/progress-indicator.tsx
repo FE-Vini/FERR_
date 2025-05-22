@@ -486,7 +486,7 @@ const ProgressIndicator = () => {
                                     <CircleCheck size={16} />
                                 </motion.div>
                             )}
-                            {!isLoading && (step === 9 ? 'Abschicken' : 'weiter')}
+                            {!isLoading && (step === 8 ? 'weiter' : step === 9 ? 'Abschicken' : 'weiter')}
                         </div>
                     </motion.button>
                 </motion.div>
