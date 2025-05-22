@@ -79,24 +79,34 @@ const ProgressIndicator = () => {
       setIsLoading(true);
       setErrors([]);
       
-      const formDataToSend = new FormData();
-      Object.entries(formData).forEach(([key, value]) => {
-        if (key === 'resume' && value instanceof File) {
-          formDataToSend.append('resume', value);
-        } else if (Array.isArray(value)) {
-          formDataToSend.append(key, JSON.stringify(value));
-        } else {
-          formDataToSend.append(key, String(value));
-        }
-      });
-      
       try {
+        // Convert File to base64 if it exists
+        let resumeBase64 = null;
+        if (formData.resume) {
+          const buffer = await formData.resume.arrayBuffer();
+          const base64 = btoa(
+            new Uint8Array(buffer).reduce((data, byte) => data + String.fromCharCode(byte), '')
+          );
+          resumeBase64 = `data:${formData.resume.type};base64,${base64}`;
+        }
+
+        // Create JSON payload
+        const jsonData = {
+          ...formData,
+          resume: resumeBase64 ? {
+            name: formData.resume?.name,
+            type: formData.resume?.type,
+            data: resumeBase64
+          } : null
+        };
+
         const response = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/send-email`, {
           method: 'POST',
           headers: {
             'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
+            'Content-Type': 'application/json'
           },
-          body: formDataToSend,
+          body: JSON.stringify(jsonData)
         });
 
         if (!response.ok) {
