@@ -14,6 +14,7 @@ interface FormData {
   experience: string[];
   workPreferences: string[];
   preferredShift: string;
+  resume: File | null;
 }
 
 const ProgressIndicator = () => {
@@ -29,7 +30,8 @@ const ProgressIndicator = () => {
       previousWork: '',
       experience: [],
       workPreferences: [],
-      preferredShift: ''
+      preferredShift: '',
+      resume: null
     })
     const [errors, setErrors] = useState<string[]>([])
 
@@ -51,6 +53,8 @@ const ProgressIndicator = () => {
         newErrors.push('Bitte wählen Sie mindestens eine Option')
       } else if (step === 8 && !formData.preferredShift) {
         newErrors.push('Bitte wählen Sie eine Option')
+      } else if (step === 9 && !formData.resume) {
+        newErrors.push('Bitte laden Sie Ihren Lebenslauf hoch')
       }
 
       setErrors(newErrors)
@@ -74,17 +78,25 @@ const ProgressIndicator = () => {
     const handleSubmit = async () => {
       setIsLoading(true);
       setErrors([]);
+      
+      const formDataToSend = new FormData();
+      Object.entries(formData).forEach(([key, value]) => {
+        if (key === 'resume' && value instanceof File) {
+          formDataToSend.append('resume', value);
+        } else if (Array.isArray(value)) {
+          formDataToSend.append(key, JSON.stringify(value));
+        } else {
+          formDataToSend.append(key, String(value));
+        }
+      });
+      
       try {
         const response = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/send-email`, {
           method: 'POST',
           headers: {
             'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
-            'Content-Type': 'application/json',
           },
-          body: JSON.stringify({
-            ...formData,
-            formType: 'initiative'
-          }),
+          body: formDataToSend,
         });
 
         if (!response.ok) {
@@ -112,10 +124,13 @@ const ProgressIndicator = () => {
     const handleInputChange = (
       field: keyof FormData,
       value: string | string[],
-      isArray = false
+      isArray = false,
+      isFile = false
     ) => {
       setFormData(prev => {
-        if (isArray && Array.isArray(prev[field])) {
+        if (isFile && field === 'resume' && value instanceof File) {
+          return { ...prev, [field]: value };
+        } else if (isArray && Array.isArray(prev[field])) {
           const array = prev[field] as string[]
           if (field === 'workPreferences') {
             if (array.includes(value as string)) {
@@ -308,6 +323,38 @@ const ProgressIndicator = () => {
                     {option}
                   </button>
                 ))}
+              </div>
+            </div>
+          )
+        case 9:
+          return (
+            <div className="space-y-6 w-full">
+              <h3 className="text-lg font-semibold mb-4">Laden Sie Ihren Lebenslauf hoch <span className="text-red-500">*</span></h3>
+              <div className="space-y-4">
+                <input
+                  type="file"
+                  accept=".pdf,.doc,.docx"
+                  onChange={(e) => {
+                    const file = e.target.files?.[0];
+                    if (file) {
+                      handleInputChange('resume', file, false, true);
+                    }
+                  }}
+                  className="block w-full text-sm text-gray-600
+                    file:mr-4 file:py-2 file:px-4
+                    file:rounded-full file:border-0
+                    file:text-sm file:font-semibold
+                    file:bg-blue-50 file:text-blue-700
+                    hover:file:bg-blue-100"
+                />
+                <p className="text-sm text-gray-500">
+                  Akzeptierte Formate: PDF, DOC, DOCX
+                </p>
+                {formData.resume && (
+                  <p className="text-sm text-green-600">
+                    ✓ {formData.resume.name} ausgewählt
+                  </p>
+                )}
               </div>
             </div>
           )
