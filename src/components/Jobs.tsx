@@ -139,7 +139,7 @@ const Jobs = () => {
 
               <div
                 className={`transition-all duration-200 overflow-hidden ${
-                  openJobId === job.id ? 'max-h-[40vh] opacity-100' : 'max-h-0 opacity-0'
+                  openJobId === job.id ? 'max-h-[80vh] opacity-100' : 'max-h-0 opacity-0'
                 } flex flex-col`}
               >
                 <div className="p-8 pt-4 space-y-6 border-t border-gray-100 overflow-y-auto">
