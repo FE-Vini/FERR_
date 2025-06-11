@@ -25,27 +25,21 @@ const Impressum = () => {
 
             <section>
               <h2 className="text-2xl font-semibold mb-4">Vertreten durch</h2>
-              <p>Etienne Grube</p>
+              <p>Michael Knorr</p>
               <p>Geschäftsführer</p>
             </section>
 
             <section>
               <h2 className="text-2xl font-semibold mb-4">Kontakt</h2>
-              <p>Telefon: +49 391 6628 1440</p>
+              <p>Telefon: +49 151 18917099</p>
               <p>E-Mail: info@railandrepair.de</p>
             </section>
 
             <section>
               <h2 className="text-2xl font-semibold mb-4">Registereintrag</h2>
               <p>Eintragung im Handelsregister</p>
-              <p>Registergericht: Amtsgericht Magdeburg</p>
-              <p>Registernummer: HRB 12345</p>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-semibold mb-4">Umsatzsteuer-ID</h2>
-              <p>Umsatzsteuer-Identifikationsnummer gemäß §27 a Umsatzsteuergesetz:</p>
-              <p>DE 123 456 789</p>
+              <p>Registergericht: Amtsgericht Stendal</p>
+              <p>Registernummer: in Gründung</p>
             </section>
 
             <StarBorder
