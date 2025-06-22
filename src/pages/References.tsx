@@ -32,6 +32,19 @@ const References = () => {
                 </div>
               </div>
 
+              {/* ISO 14001 Certificate */}
+              <div className="bg-black/30 rounded-lg p-6">
+                <div className="flex items-start gap-4">
+                  <div className="p-3 bg-blue-900/20 rounded-lg">
+                    <FileText className="w-6 h-6 text-blue-400" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-xl font-semibold mb-2">ISO 14001 Zertifikat</h3>
+                    <p className="text-gray-400 mb-4">Umweltmanagement-Zertifizierung</p>
+                  </div>
+                </div>
+              </div>
+
               {/* VPI-EMG Image */}
               <div className="bg-black/30 rounded-lg p-6">
                 <div className="flex items-start gap-4">
