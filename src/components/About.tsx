@@ -30,7 +30,7 @@ const About = () => {
               </div>
             </div>
           </div>
-          <div className="relative rounded-[20px] shadow-xl overflow-hidden">
+          <div className="relative rounded-[20px] overflow-hidden">
             <div style={{padding:'56.25% 0 0 0', position:'relative'}}>
               <iframe 
                 src="https://player.vimeo.com/video/1082134895?h=38f8c69620&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
