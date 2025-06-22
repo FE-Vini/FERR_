@@ -26,7 +26,7 @@ const References = () => {
                     <FileText className="w-6 h-6 text-blue-400" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-xl font-semibold mb-2">ISO 9001:2025 Zertifikat</h3>
+                    <h3 className="text-xl font-semibold mb-2">ISO 9001:2015 Zertifikat</h3>
                     <p className="text-gray-400 mb-4">Qualitätsmanagement-Zertifizierung</p>
                   </div>
                 </div>
@@ -39,7 +39,7 @@ const References = () => {
                     <FileText className="w-6 h-6 text-blue-400" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-xl font-semibold mb-2">ISO 14001 Zertifikat</h3>
+                    <h3 className="text-xl font-semibold mb-2">ISO 14001:2015 Zertifikat</h3>
                     <p className="text-gray-400 mb-4">Umweltmanagement-Zertifizierung</p>
                   </div>
                 </div>
