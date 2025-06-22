@@ -10,7 +10,7 @@ const Hero = ({ onLoad }: HeroProps) => {
 
   React.useEffect(() => {
     const img = new Image();
-    img.src = "https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&fit=crop&q=80";
+    img.src = "/images/Hero_Image.jpg";
     img.onload = () => {
       setImageLoaded(true);
       onLoad();
@@ -24,7 +24,7 @@ const Hero = ({ onLoad }: HeroProps) => {
           imageLoaded ? 'opacity-100' : 'opacity-0'
         } transition-opacity duration-500`}
         style={{
-          backgroundImage: 'url("https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&fit=crop&q=80")',
+          backgroundImage: 'url("/images/Hero_Image.jpg")',
         }}>
         <div className="absolute inset-0 bg-black/40" />
       </div>
