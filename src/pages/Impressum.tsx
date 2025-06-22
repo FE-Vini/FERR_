@@ -39,7 +39,7 @@ const Impressum = () => {
               <h2 className="text-2xl font-semibold mb-4">Registereintrag</h2>
               <p>Eintragung im Handelsregister</p>
               <p>Registergericht: Amtsgericht Stendal</p>
-              <p>Registernummer: in Gründung</p>
+              <p>Registernummer: HRB35998</p>
             </section>
 
             <StarBorder
