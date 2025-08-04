@@ -1,5 +1,5 @@
 import React from 'react';
-import { Instagram } from 'lucide-react';
+import { Instagram, Linkedin } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -11,7 +11,7 @@ const Footer = () => {
             <p className="text-gray-400">
               Ihr zuverlässiger Partner für professionelle Schienenfahrzeug-Instandhaltung
             </p>
-            <div className="mt-4">
+            <div className="mt-4 flex gap-4">
               <a 
                 href="https://www.instagram.com/ferailrepair?igsh=OW15NHdpaG5scDR2&utm_source=ig_contact_invite"
                 target="_blank"
@@ -19,6 +19,14 @@ const Footer = () => {
                 className="text-gray-400 hover:text-white transition-colors duration-200"
               >
                 <Instagram className="w-6 h-6" />
+              </a>
+              <a 
+                href="https://www.linkedin.com/company/fe-rail-repair/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-white transition-colors duration-200"
+              >
+                <Linkedin className="w-6 h-6" />
               </a>
             </div>
           </div>
