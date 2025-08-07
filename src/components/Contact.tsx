@@ -51,7 +51,7 @@ const Contact = () => {
         </h2>
         
         {/* Contact Information */}
-        <div className="max-w-xl mx-auto mb-8">
+        <div className="max-w-4xl mx-auto mb-8">
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-white/95 rounded-2xl p-6 backdrop-blur-sm">
               <div className="flex items-center gap-4">
@@ -89,7 +89,7 @@ const Contact = () => {
           </div>
         </div>
         
-        <div className="max-w-xl mx-auto bg-white/95 rounded-2xl p-8 backdrop-blur-sm relative">
+        <div className="max-w-2xl mx-auto bg-white/95 rounded-2xl p-8 backdrop-blur-sm relative">
           {success && (
             <div className="mb-6 p-4 bg-green-100 text-green-700 rounded-lg">
               Ihre Nachricht wurde erfolgreich gesendet. Wir werden uns in Kürze bei Ihnen melden.
