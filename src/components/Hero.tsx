@@ -54,6 +54,10 @@ const Hero = ({ onLoad }: HeroProps) => {
                 <span className="w-2 h-2 bg-white rounded-full mr-3 shrink-0 mt-[0.4em]" />
                 24/7-Erreichbarkeit unseres Einsatzkoordinators für Notfälle und akute Störungen
               </li>
+              <li className="flex items-start">
+                <span className="w-2 h-2 bg-white rounded-full mr-3 shrink-0 mt-[0.4em]" />
+                Hotline: 0391 72 73 73 96
+              </li>
             </ul>
             <StarBorder
               as="a"
