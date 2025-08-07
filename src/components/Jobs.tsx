@@ -101,7 +101,7 @@ const Jobs = () => {
           Karriere bei FE Rail & Repair
         </h2>
         
-        <div className="space-y-4 max-w-3xl mx-auto">
+        <div className="space-y-4 max-w-4xl mx-auto">
           {jobs.map((job) => (
             <div key={job.id} className="bg-white/95 rounded-[20px] backdrop-blur-sm overflow-hidden">
               <button
