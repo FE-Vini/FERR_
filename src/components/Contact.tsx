@@ -49,6 +49,46 @@ const Contact = () => {
         <h2 className="text-3xl md:text-5xl font-bold text-center text-white mb-12">
           Kontakt
         </h2>
+        
+        {/* Contact Information */}
+        <div className="max-w-xl mx-auto mb-8">
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="bg-white/95 rounded-2xl p-6 backdrop-blur-sm">
+              <div className="flex items-center gap-4">
+                <div className="p-3 bg-blue-900/10 rounded-full">
+                  <Phone className="w-6 h-6 text-blue-900" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-gray-900 mb-1">Telefon</h3>
+                  <a 
+                    href="tel:+4939172737396" 
+                    className="text-blue-900 hover:text-blue-700 transition-colors duration-200"
+                  >
+                    0391 72 73 73 96
+                  </a>
+                </div>
+              </div>
+            </div>
+            
+            <div className="bg-white/95 rounded-2xl p-6 backdrop-blur-sm">
+              <div className="flex items-center gap-4">
+                <div className="p-3 bg-blue-900/10 rounded-full">
+                  <Mail className="w-6 h-6 text-blue-900" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-gray-900 mb-1">E-Mail</h3>
+                  <a 
+                    href="mailto:michael.knorr@railandrepair.de" 
+                    className="text-blue-900 hover:text-blue-700 transition-colors duration-200"
+                  >
+                    michael.knorr@railandrepair.de
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
         <div className="max-w-xl mx-auto bg-white/95 rounded-2xl p-8 backdrop-blur-sm relative">
           {success && (
             <div className="mb-6 p-4 bg-green-100 text-green-700 rounded-lg">
