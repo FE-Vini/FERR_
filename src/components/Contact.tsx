@@ -78,10 +78,10 @@ const Contact = () => {
                 <div>
                   <h3 className="font-semibold text-gray-900 mb-1">E-Mail</h3>
                   <a 
-                    href="mailto:michael.knorr@railandrepair.de" 
+                    href="mailto:info@railandrepair.de" 
                     className="text-blue-900 hover:text-blue-700 transition-colors duration-200"
                   >
-                    michael.knorr@railandrepair.de
+                    info@railandrepair.de
                   </a>
                 </div>
               </div>
