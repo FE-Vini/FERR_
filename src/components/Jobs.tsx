@@ -44,7 +44,7 @@ const Jobs = () => {
     },
     {
       id: 'schlosser',
-      title: 'Servicetechniker / Schlosser (m/w/d)',
+      title: 'Schlosser / Servicetechniker (m/w/d)',
       type: 'Vollzeit',
       location: 'Magdeburg',
       description: 'Die FE Rail & Repair GmbH mit Firmensitz in Magdeburg wurde im Jahr 2025 gegründet und ist somit ganz frisch als Dienstleister auf dem Markt. Wir sind spezialisiert auf die Instandhaltungs- und Instandsetzungsarbeiten an Güterwagen – und das bundesweit. Trotz der jungen Unternehmensgeschichte verfügt das Unternehmen über eine große Expertise, da unser Geschäftsführer über eine umfassende Erfahrung und Fachwissen aus vielen Jahren in der Branche mitbringt. Unser Ziel ist es, mit höchster Qualität, Flexibilität und Zuverlässigkeit den Ansprüchen unserer Kunden gerecht zu werden und so zur sicheren und effizienten Nutzung von Güterwagen im gesamten Schienennetz beizutragen.\n\nWir suchen zur Verstärkung unseres mobilen Serviceteams, Schlosser / Servicetechniker (m/w/d) in Vollzeit.',
