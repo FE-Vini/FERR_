@@ -148,11 +148,22 @@ const Jobs = () => {
                   ) : (
                     <>
                       <div className="text-gray-600 whitespace-pre-line">
-                        {job.description}
-                        {job.id === 'wagenmeister' && (
+                        {job.id === 'wagenmeister' ? (
                           <div className="mt-4">
-                            Wir suchen zur Verstärkung unseres mobilen Serviceteams, <span className="text-red-600 font-semibold">Schlosser / Servicetechniker</span> (m/w/d) in Vollzeit.
+                            {job.description}
+                            <div className="mt-4">
+                              Wir suchen zur Verstärkung unseres mobilen Serviceteams, <span className="text-red-600 font-semibold">Schlosser / Servicetechniker</span> (m/w/d) in Vollzeit.
+                            </div>
                           </div>
+                        ) : job.id === 'schlosser' ? (
+                          <div>
+                            {job.description.split('Wir suchen zur Verstärkung unseres mobilen Serviceteams, Schlosser / Servicetechniker (m/w/d) in Vollzeit.')[0]}
+                            <div className="mt-4">
+                              Wir suchen zur Verstärkung unseres mobilen Serviceteams, <span className="text-red-600 font-semibold">Schlosser / Servicetechniker</span> (m/w/d) in Vollzeit.
+                            </div>
+                          </div>
+                        ) : (
+                          job.description
                         )}
                       </div>
                       
