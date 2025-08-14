@@ -77,6 +77,40 @@ const Jobs = () => {
       footer: 'Wir freuen uns, wenn wir Ihr Interesse geweckt haben!\nWenn Sie Teil eines dynamischen, neu-wachsenden Unternehmens werden möchten, senden Sie uns gerne Ihre Bewerbungsunterlagen per E-Mail'
     },
     {
+      id: 'kessel-schlosser',
+      title: '(Kessel-)Schlosser (m/w/d)',
+      type: 'Vollzeit',
+      location: 'Magdeburg',
+      description: 'Die FE Rail & Repair GmbH mit Firmensitz in Magdeburg wurde im Jahr 2025 gegründet und ist somit ganz frisch als Dienstleister auf dem Markt. Wir sind spezialisiert auf die Instandhaltungs- und Instandsetzungsarbeiten an Güterwagen – und das bundesweit. Trotz der jungen Unternehmensgeschichte verfügt das Unternehmen über eine große Expertise, da unser Geschäftsführer über eine umfassende Erfahrung und Fachwissen aus vielen Jahren in der Branche mitbringt. Unser Ziel ist es, mit höchster Qualität, Flexibilität und Zuverlässigkeit den Ansprüchen unserer Kunden gerecht zu werden und so zur sicheren und effizienten Nutzung von Güterwagen im gesamten Schienennetz beizutragen.\n\nWir suchen zur Verstärkung unseres mobilen Serviceteams (Kessel-)Schlosser (m/w/d) in Vollzeit.',
+      profile: [
+        'Abgeschlossene Ausbildung als (Kessel-)schlosser, Anlagenmechaniker, Behälterbauer oder vergleichbare Qualifikationen',
+        'Erfahrung im Bereich Druckbehälter, idealerweise an Schienenfahrzeugen oder Kesselanlagen',
+        'Hohes Qualitätsbewusstsein',
+        'Zuverlässig und belastbar',
+        'Selbstständige, strukturierte sowie sorgfältige Arbeitsweise',
+        'EU-Führerschein B / BE',
+        'Bereitschaft zu Spät- und Nachtschichten sowie Wochenend- und Feiertagsarbeit',
+        'Gute Deutschkenntnisse in Wort und Schrift'
+      ],
+      tasks: [
+        'Mobile Serviceeinsätze innerhalb von Deutschland, ggfs. auch europaweit',
+        'Selbständige Durchführung von Reparatur-/Instandsetzungsarbeiten',
+        'Durchführung von Wartungs- und Instandhaltungsarbeiten',
+        'Arbeiten nach vorliegenden Checklisten / Wartungsanweisungen durchführen',
+        'Erstellung der Dokumentation mit'
+      ],
+      benefits: [
+        'Umfangreiche Einarbeitung und Schulungen',
+        'Fort- und Weiterbildungsmöglichkeiten',
+        'Prozesse von Beginn mitgestalten und gemeinsam zu wachsen',
+        'Teamkultur: Coole Events, Austausch, Spass und echtes "WIR"-Gefühl',
+        'Attraktive Vergütung sowie Zuschläge',
+        'Urlaubsanspruch von 30 Tagen',
+        'Corparate Benefits'
+      ],
+      footer: 'Wir freuen uns, wenn wir Ihr Interesse geweckt haben!\nWenn Sie Teil eines dynamischen, neu-wachsenden Unternehmens werden möchten, senden Sie uns gerne Ihre Bewerbungsunterlagen per E-Mail'
+    },
+    {
       id: 'initiative',
       title: 'Initiativbewerbung',
       type: '',
@@ -160,6 +194,13 @@ const Jobs = () => {
                             {job.description.split('Wir suchen zur Verstärkung unseres mobilen Serviceteams, Schlosser / Servicetechniker (m/w/d) in Vollzeit.')[0]}
                             <div className="mt-4">
                               Wir suchen zur Verstärkung unseres mobilen Serviceteams, <span className="text-red-600 font-semibold">Schlosser / Servicetechniker</span> (m/w/d) in Vollzeit.
+                            </div>
+                          </div>
+                        ) : job.id === 'kessel-schlosser' ? (
+                          <div>
+                            {job.description.split('Wir suchen zur Verstärkung unseres mobilen Serviceteams (Kessel-)Schlosser (m/w/d) in Vollzeit.')[0]}
+                            <div className="mt-4">
+                              Wir suchen zur Verstärkung unseres mobilen Serviceteams <span className="text-red-600 font-semibold">(Kessel-)Schlosser</span> (m/w/d) in Vollzeit.
                             </div>
                           </div>
                         ) : (
