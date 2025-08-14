@@ -186,7 +186,7 @@ const Jobs = () => {
                           <div className="mt-4">
                             {job.description}
                             <div className="mt-4">
-                              Wir suchen zur Verstärkung unseres mobilen Serviceteams, <span className="text-red-600 font-semibold">Schlosser / Servicetechniker</span> (m/w/d) in Vollzeit.
+                              Wir suchen zur Verstärkung unseres mobilen Serviceteams, <span className="text-red-600 font-semibold">Wagenmeister / Wagenprüfer</span> (m/w/d) in Vollzeit.
                             </div>
                           </div>
                         ) : job.id === 'schlosser' ? (
