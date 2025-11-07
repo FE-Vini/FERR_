@@ -17,13 +17,13 @@ const Contact = () => {
     const formData = new FormData(form);
     
     try {
-      const response = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/send-email`, {
+      const response = await fetch('https://hook.eu2.make.com/5q5k4267hpmd7ij2e4t8vjnjkwab7m96', {
         method: 'POST',
         headers: {
-          'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
+          type: 'contact',
           name: formData.get('name'),
           email: formData.get('email'),
           message: formData.get('message'),
